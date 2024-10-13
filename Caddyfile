@@ -1,10 +1,5 @@
 :80 {
-    # Proxy requests to the ping backend
-    @pingBackend path /ping /ping/*
-    handle @pingBackend {
-        reverse_proxy ping-backend:3002
-    }
-
+    
     # Serve the frontend
     root * /usr/share/caddy
     file_server

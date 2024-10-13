@@ -11,7 +11,7 @@ function App() {
     setError(null);
     try {
       // Update URL to Caddy proxy URL
-      const response = await fetch('http://localhost:8081/ping');
+      const response = await fetch('http://localhost:3002/ping');
       const data = await response.json();
       console.log(data);
       if (response.ok && data.number !== undefined) {
@@ -22,7 +22,7 @@ function App() {
         setError('Unknown error occurred');
       }
     } catch (err) {
-      console.error('Error fetching pings:', err);
+      console.error('Error fetching ping:', err);
       setError('Error fetching ping');
     }
     setLoading(false);
