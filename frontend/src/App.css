@@ -1,0 +1,20 @@
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+
+#number {
+  font-size: 48px;
+  margin: 20px 0;
+}
+
+#pingButton {
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+.error {
+  color: red;
+  margin-top: 20px;
+}

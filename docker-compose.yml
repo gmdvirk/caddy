@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # Ping Backend Service
+  ping-backend:
+    build: ./ping-backend
+    container_name: ping-backend
+    ports:
+      - "3002:3002"
+    networks:
+      - app-network
+
+  # Caddy (serving frontend and proxying backend)
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    ports:
+      - "8081:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./frontend/build:/usr/share/caddy  # Mount the frontend build files
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
